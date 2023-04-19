@@ -5,15 +5,11 @@ import java.util.Set;
 
 public class SubsetOfSquaresCreator {
     public Set<Integer> createSubsetOfSquares(List<Integer> sourceList, int lowerBound, int upperBound) {
-        Set<Integer> set = new HashSet<>();
-        int temp;
-        for (Integer e : sourceList) {
-            temp = e * e;
-            if (lowerBound <= temp && upperBound >= temp) {
-                set.add(temp);
-            }
+         TreeSet<Integer> treeSet = new TreeSet<>();
+        for (Integer element : sourceList) {
+            treeSet.add(element * element);
         }
-        return set;
+        return treeSet.subSet(lowerBound, true, upperBound, true);
         
     }
 }
